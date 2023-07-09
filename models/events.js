@@ -1,13 +1,13 @@
 const mongoose=require('mongoose');
 const EventSchema=mongoose.Schema({
     title: String,
-    description: String,
-    time: Number,
+    description:String,
+    location:String,
     date: Date,
-    image: Object,
+    image: String,
     createDate:{
         type:Date,
-        default:Date.now
+        default:Date.now()
     }
 })
 module.exports=mongoose.model('Events',EventSchema)
