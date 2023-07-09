@@ -21,11 +21,11 @@ router.post("/saveEvent", async function (req, res) {
   res.redirect("/");
 });
 
-router.get("/events", function (req, res, next) {
-  res.render("events", { title: "Express" });
-});
+// router.get("/events", function (req, res, next) {
+//   res.render("events", { title: "Express" });
+// });
 
-router.get("/calendar", function (req, res, next) {
+router.get("/events", function (req, res, next) {
   res.render("calender");
 });
 
