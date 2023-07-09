@@ -69,37 +69,29 @@ function getWeeksInMonth(a, b) {
 
 week_date = getWeeksInMonth(today.getMonth(), today.getFullYear())[2];
 
-$(document).ready(function() {
+$(document).ready(async function() {
+
+    const dbEvents = JSON.parse(document.getElementById('eventList').innerHTML);
+    console.log(dbEvents);
+
+    const calendarEvents = [];
+
+    dbEvents.forEach(event => {
+      calendarEvents.push({
+        id: event._id,
+        name: event.title,
+        description:event.description,
+        date: event.date,
+        type: "error",
+        everyYear: !0
+      });
+    });
+
+
     $("#demoEvoCalendar").evoCalendar({
         format: "MM dd, yyyy",
         titleFormat: "MM",
-        calendarEvents: [{
-            id: "d8jai7s",
-            name: "Author's Birthday",
-            description: "Author's note: Thank you for using EvoCalendar! :)",
-            date: "February/15/1999",
-            type: "birthday",
-            everyYear: !0
-        }, {
-            id: "sKn89hi",
-            name: "1-Week Coding Bootcamp",
-            description: "Lorem ipsum dolor sit amet.",
-            badge: "5-day event",
-            date: [ today.getMonth() + 1 + "/" + week_date.start + "/" + today.getFullYear(), today.getMonth() + 1 + "/" + week_date.end + "/" + today.getFullYear() ],
-            type: "event",
-            everyYear: !0
-        }, {
-            id: "in8bha4",
-            name: "Holiday #2",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            date: today,
-            type: "holiday"
-        }, {
-            id: "in8bha4",
-            name: "Event #2",
-            date: today,
-            type: "event"
-        }]
+        calendarEvents: calendarEvents
     });
     $("[data-set-theme]").click(function(b) {
         a(b.target);
@@ -136,6 +128,7 @@ $(document).ready(function() {
     showSettingsSample($(c).data().settings);
     showMethodSample($(e).data().method);
     showEventSample($(g).data().event);
+
     $("[data-settings]").on("click", function(a) {
         var b = $(a.target).closest("[data-settings]");
         var c = b.data().settings;

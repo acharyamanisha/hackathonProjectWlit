@@ -46,9 +46,68 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
       rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="fonts/icomoon/style.css" />
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="css/tiny-slider.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/flatpickr.min.css" />
+    <link rel="stylesheet" href="css/glightbox.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
-  
+  <body class="hero overlay"
+  style="background-image: url('images/tree_plantation.jpg')">
+    <nav class="site-nav">
+      <div class="container">
+        <div class="menu-bg-wrap">
+          <div class="site-navigation">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <!-- <a href="/" class="logo m-0 float-start text-white" -->
+                  <img src="images/img.jpg.png" alt="logo" style="height: 50%; width:50%">
+                  </a
+                >
+              </div>
+              <div class="col-8 text-center">
+                <ul
+                  class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto"
+                >
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/events">Events</a></li>
+                  <li class="active"><a href="/calender">Calender</a></li>
+                  <li><a href="#">Contact</a></li>
+                  <li><a href="/signup">Sign up </a></li>
+                  <li><a href="/login">login</a></li>
+                </ul>
+              </div>
+              <div class="col-2 text-end">
+                <a
+                  href="#"
+                  class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light"
+                >
+                  <span></span>
+                </a>
+
+                <!-- <a href="#" class="call-us d-flex align-items-center">
+                  <span class="icon-phone"></span>
+                  <span>123-489-9381</span>
+                </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <main>
       <div class="main-container">
         <section>
@@ -61,7 +120,7 @@
       
         <section id="demos">
           <div class="section-content">
-            <p class="section-title --shrt">eventcalendar in action!</p>
+            <!-- <p class="section-title --shrt">eventcalendar in action!</p> -->
             <div class="action-buttons">
               <p class="section-desc">Experience eventcalendar in every theme</p>
               <button class="btn-action active" data-set-theme="Default">
@@ -79,20 +138,24 @@
             </div>
             <div class="console-log">
               <div class="log-content">
+                <span id="eventList" hidden><%= JSON.stringify(eventList) %></span>
                 <div class="--noshadow" id="demoEvoCalendar"></div>
               </div>
             </div>
-            <div class="action-buttons">
+            <!-- <div class="action-buttons">
               <button class="btn-action" id="addBtn">ADD EVENT</button>
               <button class="btn-action" id="removeBtn" disabled>
                 REMOVE EVENT
               </button>
-            </div>
+            </div> -->
           </div>
         </section>
         
       </div>
     </main>
+    <script>
+
+    </script>
     <!-- jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="js/evo-calendar.min.js"></script>
