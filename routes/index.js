@@ -12,22 +12,18 @@ router.post("/saveEvent", async function (req, res) {
   let event = new Events({
     title: req.body.title,
     description: req.body.description,
-    time: req.body.time,
+    location: req.body.location,
     date: req.body.date,
     image: req.body.image,
   });
-  await Event.insertMany(event);
-  // expenses.push({ ...formData, _id: expenses.length + 1 });
-  res.redirect("/");
+  await Events.insertMany(event);
+  res.redirect("/events");
 });
 
-// router.get("/events", function (req, res, next) {
-//   res.render("events", { title: "Express" });
-// });
-
-// router.get("/events", function (req, res, next) {
-//   res.render("calender");
-// });
+router.get("/calender", async function (req, res, next) {
+  const events = await Events.find();
+  res.render("calender", { eventList: events });
+});
 
 router.get("/login", function (req, res, next) {
   res.render("login");
@@ -35,16 +31,15 @@ router.get("/login", function (req, res, next) {
 
 router.get("/signup", function (req, res, next) {
   res.render("signup");
-    res.render("index");
+  res.render("index");
 });
 
-router.get("/events", async function(req,res) {
-  const events =  await Events.find();
-  res.render("events",{title: "ReadyForSewa", eventList: events });
+router.get("/events", async function (req, res) {
+  const events = await Events.find();
+  res.render("events", { title: "ReadyForSewa", eventList: events });
 });
 
-router.get("/addEvent",function(req,res){
-
+router.get("/addEvent", function (req, res) {
   res.render("addEvent");
 });
 router.post("/saveEvent", async function (req, res) {
