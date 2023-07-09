@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const Events = require("../modes/events");
+const Events = require("../models/events");
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -25,5 +25,12 @@ router.get('/events', function(req, res, next) {
   res.render('events', { title: 'Express' });
 });
 
+router.get('/login', function(req, res, next) {
+  res.render('login');
+});
+
+router.get('/signup', function(req, res, next) {
+  res.render('signup');
+});
 
 module.exports = router;

@@ -6,4 +6,4 @@ const usersSchema = mongoose.Schema({
     email: String,
     phonenumber: Number
 });
-module.exports= mongoose.model('users', usersSchema);
+module.exports= mongoose.model('Users', usersSchema);
